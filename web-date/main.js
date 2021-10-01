@@ -645,7 +645,7 @@ class ArrayTestComponent {
             const cycle = (_b = performance.getEntriesByName("cd", "measure")[0]) === null || _b === void 0 ? void 0 : _b.duration;
             performance.clearMarks();
             performance.clearMeasures();
-            const diff = (value - cycle) / iterations;
+            const diff = value / iterations;
             yield Promise.resolve(1);
             return diff;
         });
