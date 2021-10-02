@@ -991,7 +991,7 @@ const calcTime = (fn, searchEl, iterations = exports.iterationsCount) => {
 exports.calcTime = calcTime;
 const calcTimeCustom = (fn, searchEl, iterations = exports.iterationsCount) => {
     let start = (new Date()).getTime();
-    const time = 3;
+    const time = 5;
     let counter = 0;
     while ((new Date()).getTime() - start < time) {
         fn.call(null, searchEl);
