@@ -943,15 +943,15 @@ const runExperiment = (indexes, arr, iterations = exports.iterationsCount, calcF
     for (let i of indexes) {
         const searchEl = arr[i];
         const fn2 = {
-            name: 'findIndex',
-            fn: () => arr.findIndex(x => x === searchEl),
+            name: 'find',
+            fn: () => arr.find(x => x === searchEl),
             results: [],
             averageTime: 0,
             isFaster: 0
         };
         const fn1 = {
-            name: 'indexOf',
-            fn: () => arr.indexOf(searchEl),
+            name: 'includes',
+            fn: () => arr.includes(searchEl),
             results: [],
             averageTime: 0,
             isFaster: 0
