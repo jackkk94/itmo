@@ -905,7 +905,7 @@ var DataType;
 })(DataType = exports.DataType || (exports.DataType = {}));
 ;
 exports.iterationsCount = 1000000;
-exports.experiments = 500;
+exports.experiments = 1000;
 exports.arrLength = 10000;
 // generate --------------------------------------------------------
 function genArray(generator, count = 10000) {
