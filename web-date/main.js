@@ -538,7 +538,7 @@ class ArrayTestComponent {
         this.serverResult = [];
         this.showServerResult = false;
         this.arraySize = 100;
-        this.experiments = utils_1.experiments;
+        this.experimentsCount = utils_1.experiments;
         this.maxExperimentsCount = 8000;
         this.numbers = [];
         this.strings = [];
@@ -577,7 +577,7 @@ class ArrayTestComponent {
         else if (this.dataType === utils_1.DataType.Object)
             arr = this.data.objects.slice(0, this.arraySize);
         setTimeout(() => tslib_1.__awaiter(this, void 0, void 0, function* () {
-            this.result = yield utils_1.runExperiment(this.sampleIndexes, arr, this.iterationsCount);
+            this.result = yield utils_1.runExperiment(this.sampleIndexes, arr, this.experimentsCount, this.iterationsCount, utils_1.calcTimeCustom);
             this.processing = false;
             this.cdr.markForCheck();
         }), 50);
@@ -585,10 +585,10 @@ class ArrayTestComponent {
     onExperimentsChange(e) {
         const count = +e.target.value;
         if (count > this.maxExperimentsCount) {
-            this.experiments = this.maxExperimentsCount;
+            this.experimentsCount = this.maxExperimentsCount;
             return;
         }
-        this.experiments = count;
+        this.experimentsCount = count;
     }
     onDataTypeChange(type) {
         this.dataType = type;
@@ -616,7 +616,7 @@ ArrayTestComponent.ɵcmp = i0.ɵɵdefineComponent({ type: ArrayTestComponent, se
         i0.ɵɵtext(9, "Experiments count: ");
         i0.ɵɵelementEnd();
         i0.ɵɵelementStart(10, "input", 6);
-        i0.ɵɵlistener("ngModelChange", function ArrayTestComponent_Template_input_ngModelChange_10_listener($event) { return ctx.experiments = $event; })("blur", function ArrayTestComponent_Template_input_blur_10_listener($event) { return ctx.onExperimentsChange($event); });
+        i0.ɵɵlistener("ngModelChange", function ArrayTestComponent_Template_input_ngModelChange_10_listener($event) { return ctx.experimentsCount = $event; })("blur", function ArrayTestComponent_Template_input_blur_10_listener($event) { return ctx.onExperimentsChange($event); });
         i0.ɵɵelementEnd();
         i0.ɵɵelementEnd();
         i0.ɵɵelementStart(11, "div", 3);
@@ -671,7 +671,7 @@ ArrayTestComponent.ɵcmp = i0.ɵɵdefineComponent({ type: ArrayTestComponent, se
         i0.ɵɵadvance(6);
         i0.ɵɵproperty("ngModel", ctx.arraySize)("disabled", ctx.processing);
         i0.ɵɵadvance(4);
-        i0.ɵɵproperty("ngModel", ctx.experiments)("disabled", ctx.processing);
+        i0.ɵɵproperty("ngModel", ctx.experimentsCount)("disabled", ctx.processing);
         i0.ɵɵattribute("max", ctx.maxExperimentsCount);
         i0.ɵɵadvance(4);
         i0.ɵɵproperty("ngModel", ctx.iterationsCount)("disabled", ctx.processing);
@@ -895,7 +895,7 @@ ResultTableComponent.ɵcmp = i0.ɵɵdefineComponent({ type: ResultTableComponent
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.genSampleIndexes = exports.compare = exports.calcTime = exports.runExperiment = exports.genString = exports.genObject = exports.genNumber = exports.genArray = exports.experiments = exports.iterationsCount = exports.DataType = void 0;
+exports.genSampleIndexes = exports.compare = exports.calcTimeCustom = exports.calcTime = exports.runExperiment = exports.genString = exports.genObject = exports.genNumber = exports.genArray = exports.experiments = exports.iterationsCount = exports.DataType = void 0;
 const tslib_1 = __webpack_require__(/*! tslib */ "mrSG");
 var DataType;
 (function (DataType) {
@@ -905,7 +905,7 @@ var DataType;
 })(DataType = exports.DataType || (exports.DataType = {}));
 ;
 exports.iterationsCount = 1000000;
-exports.experiments = 10;
+exports.experiments = 1000;
 // generate --------------------------------------------------------
 function genArray(generator, count = 10000) {
     const arr = [];
@@ -937,26 +937,26 @@ function genString(len = 5) {
     return randomString;
 }
 exports.genString = genString;
-const runExperiment = (indexes, arr, iterations = exports.iterationsCount, calcFn = exports.calcTime) => tslib_1.__awaiter(void 0, void 0, void 0, function* () {
+const runExperiment = (indexes, arr, experimentsCount = exports.experiments, iterations = exports.iterationsCount, calcFn = exports.calcTime) => tslib_1.__awaiter(void 0, void 0, void 0, function* () {
     const result = [];
     console.log('data: ', arr);
     for (let i of indexes) {
         const searchEl = arr[i];
         const fn2 = {
-            name: 'find',
-            fn: () => arr.find(x => x === searchEl),
+            name: 'findIndex',
+            fn: (searchEl) => arr.findIndex(x => x === searchEl),
             results: [],
             averageTime: 0,
             isFaster: 0
         };
         const fn1 = {
-            name: 'includes',
-            fn: () => arr.includes(searchEl),
+            name: 'indexOf',
+            fn: (searchEl) => arr.indexOf(searchEl),
             results: [],
             averageTime: 0,
             isFaster: 0
         };
-        const value = yield exports.compare(fn1, fn2, exports.experiments, iterations, calcFn);
+        const value = yield exports.compare(searchEl, fn1, fn2, experimentsCount, iterations, calcFn);
         result.push({
             label: `Index of searching element: ${i}`,
             value,
@@ -966,11 +966,11 @@ const runExperiment = (indexes, arr, iterations = exports.iterationsCount, calcF
     return Promise.resolve(result);
 });
 exports.runExperiment = runExperiment;
-const calcTime = (fn, iterations = exports.iterationsCount) => tslib_1.__awaiter(void 0, void 0, void 0, function* () {
+const calcTime = (fn, searchEl, iterations = exports.iterationsCount) => tslib_1.__awaiter(void 0, void 0, void 0, function* () {
     var _a, _b;
     performance.mark('a');
     for (let i = 0; i < iterations; i++) {
-        fn();
+        fn.call(null, searchEl);
     }
     ;
     performance.mark('b');
@@ -988,7 +988,19 @@ const calcTime = (fn, iterations = exports.iterationsCount) => tslib_1.__awaiter
     return diff;
 });
 exports.calcTime = calcTime;
-const compare = (operation1, operation2, count = exports.experiments, iterations = exports.iterationsCount, calcFn) => tslib_1.__awaiter(void 0, void 0, void 0, function* () {
+const calcTimeCustom = (fn, searchEl, iterations = exports.iterationsCount) => tslib_1.__awaiter(void 0, void 0, void 0, function* () {
+    let start = (new Date()).getTime();
+    const time = 50;
+    let counter = 0;
+    while ((new Date()).getTime() - start < time) {
+        fn.call(null, searchEl);
+        ++counter;
+    }
+    yield Promise.resolve(1);
+    return time / counter;
+});
+exports.calcTimeCustom = calcTimeCustom;
+const compare = (searchEl, operation1, operation2, count = exports.experiments, iterations = exports.iterationsCount, calcFn) => tslib_1.__awaiter(void 0, void 0, void 0, function* () {
     const result = {
         operation1,
         operation2,
@@ -997,9 +1009,9 @@ const compare = (operation1, operation2, count = exports.experiments, iterations
     };
     result.operation1.isFaster = result.operation2.isFaster = 0;
     for (let i = 0; i < count; i++) {
-        const res1 = yield calcFn.call(null, operation1.fn, iterations);
+        const res1 = yield calcFn.call(null, operation1.fn, searchEl, iterations);
         yield new Promise(resolve => setTimeout(resolve, 1));
-        const res2 = yield calcFn.call(null, operation2.fn, iterations);
+        const res2 = yield calcFn.call(null, operation2.fn, searchEl, iterations);
         if (!i) {
             result.operation1.averageTime = res1;
             result.operation2.averageTime = res2;
@@ -1035,7 +1047,7 @@ const genSampleIndexes = (dataLength, maxSamplesLength = 20) => {
     if (dataLength > maxSamplesLength) {
         length = maxSamplesLength;
     }
-    let offset = Math.trunc(dataLength / length);
+    let offset = Math.floor(dataLength / length);
     for (let i = 0; i < dataLength; i = i + offset) {
         arr.push(i);
     }
