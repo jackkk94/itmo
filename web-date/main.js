@@ -475,10 +475,10 @@ const i2 = __webpack_require__(/*! @angular/forms */ "3Pt+");
 const i3 = __webpack_require__(/*! @angular/common */ "ofXK");
 const i4 = __webpack_require__(/*! ../result-table/result-table.component */ "Zgmn");
 const i5 = __webpack_require__(/*! ../result-chart/result-chart.component */ "SiiQ");
-function ArrayTestComponent_button_30_Template(rf, ctx) { if (rf & 1) {
+function ArrayTestComponent_button_26_Template(rf, ctx) { if (rf & 1) {
     const _r5 = i0.ɵɵgetCurrentView();
-    i0.ɵɵelementStart(0, "button", 15);
-    i0.ɵɵlistener("click", function ArrayTestComponent_button_30_Template_button_click_0_listener() { i0.ɵɵrestoreView(_r5); const ctx_r4 = i0.ɵɵnextContext(); return ctx_r4.showServerResult = !ctx_r4.showServerResult; });
+    i0.ɵɵelementStart(0, "button", 14);
+    i0.ɵɵlistener("click", function ArrayTestComponent_button_26_Template_button_click_0_listener() { i0.ɵɵrestoreView(_r5); const ctx_r4 = i0.ɵɵnextContext(); return ctx_r4.showServerResult = !ctx_r4.showServerResult; });
     i0.ɵɵelementStart(1, "div");
     i0.ɵɵtext(2);
     i0.ɵɵelementEnd();
@@ -488,25 +488,25 @@ function ArrayTestComponent_button_30_Template(rf, ctx) { if (rf & 1) {
     i0.ɵɵadvance(2);
     i0.ɵɵtextInterpolate1(" ", ctx_r0.showServerResult ? "Hide Result from server" : "Show Result from server", " ");
 } }
-function ArrayTestComponent_app_result_table_33_Template(rf, ctx) { if (rf & 1) {
-    i0.ɵɵelement(0, "app-result-table", 20);
+function ArrayTestComponent_app_result_table_29_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelement(0, "app-result-table", 19);
 } if (rf & 2) {
     const ctx_r1 = i0.ɵɵnextContext();
     i0.ɵɵproperty("model", ctx_r1.result);
 } }
-function ArrayTestComponent_app_result_chart_34_Template(rf, ctx) { if (rf & 1) {
-    i0.ɵɵelement(0, "app-result-chart", 20);
+function ArrayTestComponent_app_result_chart_30_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelement(0, "app-result-chart", 19);
 } if (rf & 2) {
     const ctx_r2 = i0.ɵɵnextContext();
     i0.ɵɵproperty("model", ctx_r2.result);
 } }
-function ArrayTestComponent_div_35_ng_container_3_Template(rf, ctx) { if (rf & 1) {
+function ArrayTestComponent_div_31_ng_container_3_Template(rf, ctx) { if (rf & 1) {
     i0.ɵɵelementContainerStart(0);
     i0.ɵɵelementStart(1, "h4");
     i0.ɵɵtext(2);
     i0.ɵɵelementEnd();
-    i0.ɵɵelement(3, "app-result-table", 20);
-    i0.ɵɵelement(4, "app-result-chart", 20);
+    i0.ɵɵelement(3, "app-result-table", 19);
+    i0.ɵɵelement(4, "app-result-chart", 19);
     i0.ɵɵelementContainerEnd();
 } if (rf & 2) {
     const item_r7 = ctx.$implicit;
@@ -517,12 +517,12 @@ function ArrayTestComponent_div_35_ng_container_3_Template(rf, ctx) { if (rf & 1
     i0.ɵɵadvance(1);
     i0.ɵɵproperty("model", item_r7.data);
 } }
-function ArrayTestComponent_div_35_Template(rf, ctx) { if (rf & 1) {
+function ArrayTestComponent_div_31_Template(rf, ctx) { if (rf & 1) {
     i0.ɵɵelementStart(0, "div", 1);
     i0.ɵɵelementStart(1, "h2");
     i0.ɵɵtext(2, "Result from server");
     i0.ɵɵelementEnd();
-    i0.ɵɵtemplate(3, ArrayTestComponent_div_35_ng_container_3_Template, 5, 3, "ng-container", 21);
+    i0.ɵɵtemplate(3, ArrayTestComponent_div_31_ng_container_3_Template, 5, 3, "ng-container", 20);
     i0.ɵɵelementEnd();
 } if (rf & 2) {
     const ctx_r3 = i0.ɵɵnextContext();
@@ -599,7 +599,7 @@ class ArrayTestComponent {
 }
 exports.ArrayTestComponent = ArrayTestComponent;
 ArrayTestComponent.ɵfac = function ArrayTestComponent_Factory(t) { return new (t || ArrayTestComponent)(i0.ɵɵdirectiveInject(i1.HttpClient), i0.ɵɵdirectiveInject(i0.ChangeDetectorRef)); };
-ArrayTestComponent.ɵcmp = i0.ɵɵdefineComponent({ type: ArrayTestComponent, selectors: [["app-array-test"]], decls: 36, vars: 16, consts: [[1, "container-fluid", "pt-4", "px-4"], [1, "row"], [1, "col-md-3"], [1, "d-flex", "align-items-center", "justify-content-between", "my-2"], [1, "label"], ["type", "number", "placeholder", "", "min", "10", "max", "10000", 1, "form-control", "form-input", "ms-2", 3, "ngModel", "disabled", "ngModelChange"], ["type", "number", "min", "1", 1, "form-control", "form-input", "ms-2", 3, "ngModel", "disabled", "ngModelChange", "blur"], ["type", "number", "min", "1", "max", "10000", "placeholder", "", 1, "form-control", "form-input", "ms-2", 3, "ngModel", "disabled", "ngModelChange"], [1, "d-flex", "mt-1"], [1, "form-check"], ["type", "radio", "name", "exampleRadios", "id", "exampleRadios1", "value", "option1", "checked", "", 1, "form-check-input", 3, "disabled", "change"], ["for", "exampleRadios1", 1, "form-check-label"], [1, "form-check", "ms-4"], ["type", "radio", "name", "exampleRadios", "id", "exampleRadios2", "value", "option2", 1, "form-check-input", 3, "disabled", "change"], ["for", "exampleRadios2", 1, "form-check-label"], ["type", "button", 1, "btn", "btn-primary", "mt-4", "p-2", "w-100", 3, "click"], ["type", "button", "class", "btn btn-primary mt-4 p-2 w-100", 3, "click", 4, "ngIf"], [1, "col-md-9", "ps-4"], ["class", "col-md-6", 3, "model", 4, "ngIf"], ["class", "row", 4, "ngIf"], [1, "col-md-6", 3, "model"], [4, "ngFor", "ngForOf"]], template: function ArrayTestComponent_Template(rf, ctx) { if (rf & 1) {
+ArrayTestComponent.ɵcmp = i0.ɵɵdefineComponent({ type: ArrayTestComponent, selectors: [["app-array-test"]], decls: 32, vars: 14, consts: [[1, "container-fluid", "pt-4", "px-4"], [1, "row"], [1, "col-md-3"], [1, "d-flex", "align-items-center", "justify-content-between", "my-2"], [1, "label"], ["type", "number", "placeholder", "", "min", "10", "max", "10000", 1, "form-control", "form-input", "ms-2", 3, "ngModel", "disabled", "ngModelChange"], ["type", "number", "min", "1", 1, "form-control", "form-input", "ms-2", 3, "ngModel", "disabled", "ngModelChange", "blur"], [1, "d-flex", "mt-1"], [1, "form-check"], ["type", "radio", "name", "exampleRadios", "id", "exampleRadios1", "value", "option1", "checked", "", 1, "form-check-input", 3, "disabled", "change"], ["for", "exampleRadios1", 1, "form-check-label"], [1, "form-check", "ms-4"], ["type", "radio", "name", "exampleRadios", "id", "exampleRadios2", "value", "option2", 1, "form-check-input", 3, "disabled", "change"], ["for", "exampleRadios2", 1, "form-check-label"], ["type", "button", 1, "btn", "btn-primary", "mt-4", "p-2", "w-100", 3, "click"], ["type", "button", "class", "btn btn-primary mt-4 p-2 w-100", 3, "click", 4, "ngIf"], [1, "col-md-9", "ps-4"], ["class", "col-md-6", 3, "model", 4, "ngIf"], ["class", "row", 4, "ngIf"], [1, "col-md-6", 3, "model"], [4, "ngFor", "ngForOf"]], template: function ArrayTestComponent_Template(rf, ctx) { if (rf & 1) {
         i0.ɵɵelementStart(0, "div", 0);
         i0.ɵɵelementStart(1, "div", 1);
         i0.ɵɵelementStart(2, "div", 2);
@@ -621,49 +621,41 @@ ArrayTestComponent.ɵcmp = i0.ɵɵdefineComponent({ type: ArrayTestComponent, se
         i0.ɵɵelementEnd();
         i0.ɵɵelementStart(11, "div", 3);
         i0.ɵɵelementStart(12, "label", 4);
-        i0.ɵɵtext(13, "Iterations count: ");
+        i0.ɵɵtext(13, "Data Type: ");
         i0.ɵɵelementEnd();
-        i0.ɵɵelementStart(14, "input", 7);
-        i0.ɵɵlistener("ngModelChange", function ArrayTestComponent_Template_input_ngModelChange_14_listener($event) { return ctx.iterationsCount = $event; });
+        i0.ɵɵelementStart(14, "div", 7);
+        i0.ɵɵelementStart(15, "div", 8);
+        i0.ɵɵelementStart(16, "input", 9);
+        i0.ɵɵlistener("change", function ArrayTestComponent_Template_input_change_16_listener() { return ctx.onDataTypeChange(0); });
         i0.ɵɵelementEnd();
-        i0.ɵɵelementEnd();
-        i0.ɵɵelementStart(15, "div", 3);
-        i0.ɵɵelementStart(16, "label", 4);
-        i0.ɵɵtext(17, "Data Type: ");
-        i0.ɵɵelementEnd();
-        i0.ɵɵelementStart(18, "div", 8);
-        i0.ɵɵelementStart(19, "div", 9);
-        i0.ɵɵelementStart(20, "input", 10);
-        i0.ɵɵlistener("change", function ArrayTestComponent_Template_input_change_20_listener() { return ctx.onDataTypeChange(0); });
-        i0.ɵɵelementEnd();
-        i0.ɵɵelementStart(21, "label", 11);
-        i0.ɵɵtext(22, " Number ");
+        i0.ɵɵelementStart(17, "label", 10);
+        i0.ɵɵtext(18, " Number ");
         i0.ɵɵelementEnd();
         i0.ɵɵelementEnd();
-        i0.ɵɵelementStart(23, "div", 12);
-        i0.ɵɵelementStart(24, "input", 13);
-        i0.ɵɵlistener("change", function ArrayTestComponent_Template_input_change_24_listener() { return ctx.onDataTypeChange(1); });
+        i0.ɵɵelementStart(19, "div", 11);
+        i0.ɵɵelementStart(20, "input", 12);
+        i0.ɵɵlistener("change", function ArrayTestComponent_Template_input_change_20_listener() { return ctx.onDataTypeChange(1); });
         i0.ɵɵelementEnd();
-        i0.ɵɵelementStart(25, "label", 14);
-        i0.ɵɵtext(26, " String ");
+        i0.ɵɵelementStart(21, "label", 13);
+        i0.ɵɵtext(22, " String ");
         i0.ɵɵelementEnd();
         i0.ɵɵelementEnd();
         i0.ɵɵelementEnd();
         i0.ɵɵelementEnd();
-        i0.ɵɵelementStart(27, "button", 15);
-        i0.ɵɵlistener("click", function ArrayTestComponent_Template_button_click_27_listener() { return ctx.handleClick(); });
-        i0.ɵɵelementStart(28, "div");
-        i0.ɵɵtext(29);
+        i0.ɵɵelementStart(23, "button", 14);
+        i0.ɵɵlistener("click", function ArrayTestComponent_Template_button_click_23_listener() { return ctx.handleClick(); });
+        i0.ɵɵelementStart(24, "div");
+        i0.ɵɵtext(25);
         i0.ɵɵelementEnd();
         i0.ɵɵelementEnd();
-        i0.ɵɵtemplate(30, ArrayTestComponent_button_30_Template, 3, 1, "button", 16);
+        i0.ɵɵtemplate(26, ArrayTestComponent_button_26_Template, 3, 1, "button", 15);
         i0.ɵɵelementEnd();
-        i0.ɵɵelementStart(31, "div", 17);
-        i0.ɵɵelementStart(32, "div", 1);
-        i0.ɵɵtemplate(33, ArrayTestComponent_app_result_table_33_Template, 1, 1, "app-result-table", 18);
-        i0.ɵɵtemplate(34, ArrayTestComponent_app_result_chart_34_Template, 1, 1, "app-result-chart", 18);
+        i0.ɵɵelementStart(27, "div", 16);
+        i0.ɵɵelementStart(28, "div", 1);
+        i0.ɵɵtemplate(29, ArrayTestComponent_app_result_table_29_Template, 1, 1, "app-result-table", 17);
+        i0.ɵɵtemplate(30, ArrayTestComponent_app_result_chart_30_Template, 1, 1, "app-result-chart", 17);
         i0.ɵɵelementEnd();
-        i0.ɵɵtemplate(35, ArrayTestComponent_div_35_Template, 4, 1, "div", 19);
+        i0.ɵɵtemplate(31, ArrayTestComponent_div_31_Template, 4, 1, "div", 18);
         i0.ɵɵelementEnd();
         i0.ɵɵelementEnd();
         i0.ɵɵelementEnd();
@@ -673,8 +665,6 @@ ArrayTestComponent.ɵcmp = i0.ɵɵdefineComponent({ type: ArrayTestComponent, se
         i0.ɵɵadvance(4);
         i0.ɵɵproperty("ngModel", ctx.experimentsCount)("disabled", ctx.processing);
         i0.ɵɵattribute("max", ctx.maxExperimentsCount);
-        i0.ɵɵadvance(4);
-        i0.ɵɵproperty("ngModel", ctx.iterationsCount)("disabled", ctx.processing);
         i0.ɵɵadvance(6);
         i0.ɵɵproperty("disabled", ctx.processing);
         i0.ɵɵadvance(4);
