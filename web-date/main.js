@@ -543,7 +543,7 @@ class ArrayTestComponent {
         this.numbers = [];
         this.strings = [];
         this.objects = [];
-        this.dataType = utils_1.DataType.String;
+        this.dataType = utils_1.DataType.Number;
         this.processing = false;
         this.result = [];
         this.sampleIndexes = [1, Math.ceil(this.arraySize / 2), this.arraySize - 1];
@@ -599,7 +599,7 @@ class ArrayTestComponent {
 }
 exports.ArrayTestComponent = ArrayTestComponent;
 ArrayTestComponent.ɵfac = function ArrayTestComponent_Factory(t) { return new (t || ArrayTestComponent)(i0.ɵɵdirectiveInject(i1.HttpClient), i0.ɵɵdirectiveInject(i0.ChangeDetectorRef)); };
-ArrayTestComponent.ɵcmp = i0.ɵɵdefineComponent({ type: ArrayTestComponent, selectors: [["app-array-test"]], decls: 36, vars: 16, consts: [[1, "container-fluid", "pt-4", "px-4"], [1, "row"], [1, "col-md-3"], [1, "d-flex", "align-items-center", "justify-content-between", "my-2"], [1, "label"], ["type", "number", "placeholder", "", "min", "10", "max", "10000", 1, "form-control", "form-input", "ms-2", 3, "ngModel", "disabled", "ngModelChange"], ["type", "number", "min", "1", 1, "form-control", "form-input", "ms-2", 3, "ngModel", "disabled", "ngModelChange", "blur"], ["type", "number", "min", "1", "max", "10000", "placeholder", "", 1, "form-control", "form-input", "ms-2", 3, "ngModel", "disabled", "ngModelChange"], [1, "d-flex", "mt-1"], [1, "form-check"], ["type", "radio", "name", "exampleRadios", "id", "exampleRadios2", "value", "option2", "checked", "", 1, "form-check-input", 3, "disabled", "change"], ["for", "exampleRadios2", 1, "form-check-label"], [1, "form-check", "ms-4"], ["type", "radio", "name", "exampleRadios", "id", "exampleRadios1", "value", "option1", 1, "form-check-input", 3, "disabled", "change"], ["for", "exampleRadios1", 1, "form-check-label"], ["type", "button", 1, "btn", "btn-primary", "mt-4", "p-2", "w-100", 3, "click"], ["type", "button", "class", "btn btn-primary mt-4 p-2 w-100", 3, "click", 4, "ngIf"], [1, "col-md-9", "ps-4"], ["class", "col-md-6", 3, "model", 4, "ngIf"], ["class", "row", 4, "ngIf"], [1, "col-md-6", 3, "model"], [4, "ngFor", "ngForOf"]], template: function ArrayTestComponent_Template(rf, ctx) { if (rf & 1) {
+ArrayTestComponent.ɵcmp = i0.ɵɵdefineComponent({ type: ArrayTestComponent, selectors: [["app-array-test"]], decls: 36, vars: 16, consts: [[1, "container-fluid", "pt-4", "px-4"], [1, "row"], [1, "col-md-3"], [1, "d-flex", "align-items-center", "justify-content-between", "my-2"], [1, "label"], ["type", "number", "placeholder", "", "min", "10", "max", "10000", 1, "form-control", "form-input", "ms-2", 3, "ngModel", "disabled", "ngModelChange"], ["type", "number", "min", "1", 1, "form-control", "form-input", "ms-2", 3, "ngModel", "disabled", "ngModelChange", "blur"], ["type", "number", "min", "1", "max", "10000", "placeholder", "", 1, "form-control", "form-input", "ms-2", 3, "ngModel", "disabled", "ngModelChange"], [1, "d-flex", "mt-1"], [1, "form-check"], ["type", "radio", "name", "exampleRadios", "id", "exampleRadios1", "value", "option1", "checked", "", 1, "form-check-input", 3, "disabled", "change"], ["for", "exampleRadios1", 1, "form-check-label"], [1, "form-check", "ms-4"], ["type", "radio", "name", "exampleRadios", "id", "exampleRadios2", "value", "option2", 1, "form-check-input", 3, "disabled", "change"], ["for", "exampleRadios2", 1, "form-check-label"], ["type", "button", 1, "btn", "btn-primary", "mt-4", "p-2", "w-100", 3, "click"], ["type", "button", "class", "btn btn-primary mt-4 p-2 w-100", 3, "click", 4, "ngIf"], [1, "col-md-9", "ps-4"], ["class", "col-md-6", 3, "model", 4, "ngIf"], ["class", "row", 4, "ngIf"], [1, "col-md-6", 3, "model"], [4, "ngFor", "ngForOf"]], template: function ArrayTestComponent_Template(rf, ctx) { if (rf & 1) {
         i0.ɵɵelementStart(0, "div", 0);
         i0.ɵɵelementStart(1, "div", 1);
         i0.ɵɵelementStart(2, "div", 2);
@@ -634,18 +634,18 @@ ArrayTestComponent.ɵcmp = i0.ɵɵdefineComponent({ type: ArrayTestComponent, se
         i0.ɵɵelementStart(18, "div", 8);
         i0.ɵɵelementStart(19, "div", 9);
         i0.ɵɵelementStart(20, "input", 10);
-        i0.ɵɵlistener("change", function ArrayTestComponent_Template_input_change_20_listener() { return ctx.onDataTypeChange(1); });
+        i0.ɵɵlistener("change", function ArrayTestComponent_Template_input_change_20_listener() { return ctx.onDataTypeChange(0); });
         i0.ɵɵelementEnd();
         i0.ɵɵelementStart(21, "label", 11);
-        i0.ɵɵtext(22, " String ");
+        i0.ɵɵtext(22, " Number ");
         i0.ɵɵelementEnd();
         i0.ɵɵelementEnd();
         i0.ɵɵelementStart(23, "div", 12);
         i0.ɵɵelementStart(24, "input", 13);
-        i0.ɵɵlistener("change", function ArrayTestComponent_Template_input_change_24_listener() { return ctx.onDataTypeChange(0); });
+        i0.ɵɵlistener("change", function ArrayTestComponent_Template_input_change_24_listener() { return ctx.onDataTypeChange(1); });
         i0.ɵɵelementEnd();
         i0.ɵɵelementStart(25, "label", 14);
-        i0.ɵɵtext(26, " Number ");
+        i0.ɵɵtext(26, " String ");
         i0.ɵɵelementEnd();
         i0.ɵɵelementEnd();
         i0.ɵɵelementEnd();
