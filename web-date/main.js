@@ -537,13 +537,13 @@ class ArrayTestComponent {
         this.iterationsCount = utils_1.iterationsCount;
         this.serverResult = [];
         this.showServerResult = false;
-        this.arraySize = 100;
+        this.arraySize = utils_1.arrLength;
         this.experimentsCount = utils_1.experiments;
         this.maxExperimentsCount = 8000;
         this.numbers = [];
         this.strings = [];
         this.objects = [];
-        this.dataType = utils_1.DataType.Number;
+        this.dataType = utils_1.DataType.String;
         this.processing = false;
         this.result = [];
         this.sampleIndexes = [1, Math.ceil(this.arraySize / 2), this.arraySize - 1];
@@ -562,25 +562,25 @@ class ArrayTestComponent {
         //this.runExperiment(this.numbers);
     }
     handleClick() {
-        if (this.processing) {
-            return;
-        }
-        this.processing = true;
-        this.sampleIndexes = utils_1.genSampleIndexes(this.arraySize);
-        console.log('indexes: ', this.sampleIndexes);
-        let arr = [];
-        this.result = [];
-        if (this.dataType === utils_1.DataType.Number)
-            arr = this.data.numbers.slice(0, this.arraySize);
-        else if (this.dataType === utils_1.DataType.String)
-            arr = this.data.strings.slice(0, this.arraySize);
-        else if (this.dataType === utils_1.DataType.Object)
-            arr = this.data.objects.slice(0, this.arraySize);
-        setTimeout(() => tslib_1.__awaiter(this, void 0, void 0, function* () {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            if (this.processing) {
+                return;
+            }
+            this.processing = true;
+            this.sampleIndexes = utils_1.genSampleIndexes(this.arraySize);
+            console.log('indexes: ', this.sampleIndexes);
+            let arr = [];
+            this.result = [];
+            if (this.dataType === utils_1.DataType.Number)
+                arr = this.data.numbers.slice(0, this.arraySize);
+            else if (this.dataType === utils_1.DataType.String)
+                arr = this.data.strings.slice(0, this.arraySize);
+            else if (this.dataType === utils_1.DataType.Object)
+                arr = this.data.objects.slice(0, this.arraySize);
             this.result = yield utils_1.runExperiment(this.sampleIndexes, arr, this.experimentsCount, this.iterationsCount, utils_1.calcTimeCustom);
             this.processing = false;
             this.cdr.markForCheck();
-        }), 50);
+        });
     }
     onExperimentsChange(e) {
         const count = +e.target.value;
@@ -599,7 +599,7 @@ class ArrayTestComponent {
 }
 exports.ArrayTestComponent = ArrayTestComponent;
 ArrayTestComponent.ɵfac = function ArrayTestComponent_Factory(t) { return new (t || ArrayTestComponent)(i0.ɵɵdirectiveInject(i1.HttpClient), i0.ɵɵdirectiveInject(i0.ChangeDetectorRef)); };
-ArrayTestComponent.ɵcmp = i0.ɵɵdefineComponent({ type: ArrayTestComponent, selectors: [["app-array-test"]], decls: 36, vars: 16, consts: [[1, "container-fluid", "pt-4", "px-4"], [1, "row"], [1, "col-md-3"], [1, "d-flex", "align-items-center", "justify-content-between", "my-2"], [1, "label"], ["type", "number", "placeholder", "", "min", "10", "max", "10000", 1, "form-control", "form-input", "ms-2", 3, "ngModel", "disabled", "ngModelChange"], ["type", "number", "min", "1", 1, "form-control", "form-input", "ms-2", 3, "ngModel", "disabled", "ngModelChange", "blur"], ["type", "number", "min", "1", "max", "10000", "placeholder", "", 1, "form-control", "form-input", "ms-2", 3, "ngModel", "disabled", "ngModelChange"], [1, "d-flex", "mt-1"], [1, "form-check"], ["type", "radio", "name", "exampleRadios", "id", "exampleRadios1", "value", "option1", "checked", "", 1, "form-check-input", 3, "disabled", "change"], ["for", "exampleRadios1", 1, "form-check-label"], [1, "form-check", "ms-4"], ["type", "radio", "name", "exampleRadios", "id", "exampleRadios2", "value", "option2", 1, "form-check-input", 3, "disabled", "change"], ["for", "exampleRadios2", 1, "form-check-label"], ["type", "button", 1, "btn", "btn-primary", "mt-4", "p-2", "w-100", 3, "click"], ["type", "button", "class", "btn btn-primary mt-4 p-2 w-100", 3, "click", 4, "ngIf"], [1, "col-md-9", "ps-4"], ["class", "col-md-6", 3, "model", 4, "ngIf"], ["class", "row", 4, "ngIf"], [1, "col-md-6", 3, "model"], [4, "ngFor", "ngForOf"]], template: function ArrayTestComponent_Template(rf, ctx) { if (rf & 1) {
+ArrayTestComponent.ɵcmp = i0.ɵɵdefineComponent({ type: ArrayTestComponent, selectors: [["app-array-test"]], decls: 36, vars: 16, consts: [[1, "container-fluid", "pt-4", "px-4"], [1, "row"], [1, "col-md-3"], [1, "d-flex", "align-items-center", "justify-content-between", "my-2"], [1, "label"], ["type", "number", "placeholder", "", "min", "10", "max", "10000", 1, "form-control", "form-input", "ms-2", 3, "ngModel", "disabled", "ngModelChange"], ["type", "number", "min", "1", 1, "form-control", "form-input", "ms-2", 3, "ngModel", "disabled", "ngModelChange", "blur"], ["type", "number", "min", "1", "max", "10000", "placeholder", "", 1, "form-control", "form-input", "ms-2", 3, "ngModel", "disabled", "ngModelChange"], [1, "d-flex", "mt-1"], [1, "form-check"], ["type", "radio", "name", "exampleRadios", "id", "exampleRadios2", "value", "option2", "checked", "", 1, "form-check-input", 3, "disabled", "change"], ["for", "exampleRadios2", 1, "form-check-label"], [1, "form-check", "ms-4"], ["type", "radio", "name", "exampleRadios", "id", "exampleRadios1", "value", "option1", 1, "form-check-input", 3, "disabled", "change"], ["for", "exampleRadios1", 1, "form-check-label"], ["type", "button", 1, "btn", "btn-primary", "mt-4", "p-2", "w-100", 3, "click"], ["type", "button", "class", "btn btn-primary mt-4 p-2 w-100", 3, "click", 4, "ngIf"], [1, "col-md-9", "ps-4"], ["class", "col-md-6", 3, "model", 4, "ngIf"], ["class", "row", 4, "ngIf"], [1, "col-md-6", 3, "model"], [4, "ngFor", "ngForOf"]], template: function ArrayTestComponent_Template(rf, ctx) { if (rf & 1) {
         i0.ɵɵelementStart(0, "div", 0);
         i0.ɵɵelementStart(1, "div", 1);
         i0.ɵɵelementStart(2, "div", 2);
@@ -634,18 +634,18 @@ ArrayTestComponent.ɵcmp = i0.ɵɵdefineComponent({ type: ArrayTestComponent, se
         i0.ɵɵelementStart(18, "div", 8);
         i0.ɵɵelementStart(19, "div", 9);
         i0.ɵɵelementStart(20, "input", 10);
-        i0.ɵɵlistener("change", function ArrayTestComponent_Template_input_change_20_listener() { return ctx.onDataTypeChange(0); });
+        i0.ɵɵlistener("change", function ArrayTestComponent_Template_input_change_20_listener() { return ctx.onDataTypeChange(1); });
         i0.ɵɵelementEnd();
         i0.ɵɵelementStart(21, "label", 11);
-        i0.ɵɵtext(22, " Number ");
+        i0.ɵɵtext(22, " String ");
         i0.ɵɵelementEnd();
         i0.ɵɵelementEnd();
         i0.ɵɵelementStart(23, "div", 12);
         i0.ɵɵelementStart(24, "input", 13);
-        i0.ɵɵlistener("change", function ArrayTestComponent_Template_input_change_24_listener() { return ctx.onDataTypeChange(1); });
+        i0.ɵɵlistener("change", function ArrayTestComponent_Template_input_change_24_listener() { return ctx.onDataTypeChange(0); });
         i0.ɵɵelementEnd();
         i0.ɵɵelementStart(25, "label", 14);
-        i0.ɵɵtext(26, " String ");
+        i0.ɵɵtext(26, " Number ");
         i0.ɵɵelementEnd();
         i0.ɵɵelementEnd();
         i0.ɵɵelementEnd();
@@ -895,7 +895,7 @@ ResultTableComponent.ɵcmp = i0.ɵɵdefineComponent({ type: ResultTableComponent
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.genSampleIndexes = exports.compare = exports.calcTimeCustom = exports.calcTime = exports.runExperiment = exports.genString = exports.genObject = exports.genNumber = exports.genArray = exports.experiments = exports.iterationsCount = exports.DataType = void 0;
+exports.genSampleIndexes = exports.compare = exports.calcTimeCustom = exports.calcTime = exports.runExperiment = exports.genString = exports.genObject = exports.genNumber = exports.genArray = exports.arrLength = exports.experiments = exports.iterationsCount = exports.DataType = void 0;
 const tslib_1 = __webpack_require__(/*! tslib */ "mrSG");
 var DataType;
 (function (DataType) {
@@ -905,7 +905,8 @@ var DataType;
 })(DataType = exports.DataType || (exports.DataType = {}));
 ;
 exports.iterationsCount = 1000000;
-exports.experiments = 1000;
+exports.experiments = 500;
+exports.arrLength = 10000;
 // generate --------------------------------------------------------
 function genArray(generator, count = 10000) {
     const arr = [];
@@ -941,7 +942,8 @@ const runExperiment = (indexes, arr, experimentsCount = exports.experiments, ite
     const result = [];
     console.log('data: ', arr);
     for (let i of indexes) {
-        const searchEl = arr[i];
+        console.log(i);
+        const el = arr[i];
         const fn2 = {
             name: 'findIndex',
             fn: (searchEl) => arr.findIndex(x => x === searchEl),
@@ -956,7 +958,7 @@ const runExperiment = (indexes, arr, experimentsCount = exports.experiments, ite
             averageTime: 0,
             isFaster: 0
         };
-        const value = yield exports.compare(searchEl, fn1, fn2, experimentsCount, iterations, calcFn);
+        const value = yield exports.compare(el, fn1, fn2, experimentsCount, iterations, calcFn);
         result.push({
             label: `Index of searching element: ${i}`,
             value,
@@ -966,7 +968,7 @@ const runExperiment = (indexes, arr, experimentsCount = exports.experiments, ite
     return Promise.resolve(result);
 });
 exports.runExperiment = runExperiment;
-const calcTime = (fn, searchEl, iterations = exports.iterationsCount) => tslib_1.__awaiter(void 0, void 0, void 0, function* () {
+const calcTime = (fn, searchEl, iterations = exports.iterationsCount) => {
     var _a, _b;
     performance.mark('a');
     for (let i = 0; i < iterations; i++) {
@@ -984,21 +986,19 @@ const calcTime = (fn, searchEl, iterations = exports.iterationsCount) => tslib_1
     performance.clearMarks();
     performance.clearMeasures();
     const diff = (value - cycle) / iterations;
-    yield Promise.resolve(1);
     return diff;
-});
+};
 exports.calcTime = calcTime;
-const calcTimeCustom = (fn, searchEl, iterations = exports.iterationsCount) => tslib_1.__awaiter(void 0, void 0, void 0, function* () {
+const calcTimeCustom = (fn, searchEl, iterations = exports.iterationsCount) => {
     let start = (new Date()).getTime();
-    const time = 50;
+    const time = 3;
     let counter = 0;
     while ((new Date()).getTime() - start < time) {
         fn.call(null, searchEl);
         ++counter;
     }
-    yield Promise.resolve(1);
     return time / counter;
-});
+};
 exports.calcTimeCustom = calcTimeCustom;
 const compare = (searchEl, operation1, operation2, count = exports.experiments, iterations = exports.iterationsCount, calcFn) => tslib_1.__awaiter(void 0, void 0, void 0, function* () {
     const result = {
@@ -1009,9 +1009,9 @@ const compare = (searchEl, operation1, operation2, count = exports.experiments, 
     };
     result.operation1.isFaster = result.operation2.isFaster = 0;
     for (let i = 0; i < count; i++) {
-        const res1 = yield calcFn.call(null, operation1.fn, searchEl, iterations);
+        const res1 = calcFn.call(null, operation1.fn, searchEl, iterations);
         yield new Promise(resolve => setTimeout(resolve, 1));
-        const res2 = yield calcFn.call(null, operation2.fn, searchEl, iterations);
+        const res2 = calcFn.call(null, operation2.fn, searchEl, iterations);
         if (!i) {
             result.operation1.averageTime = res1;
             result.operation2.averageTime = res2;
